@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  /* Effects */
+
+
+  /* Colors */
+  --color-white: #fff;
+  --color-primary: #ff3f3a;
+  --color-secondary: #ffcf2d;
+  --color-success: #03cea4;
+  --color-danger: #ff4242;
+  --color-warning: #f89828;
+  --color-info: #5a87fc;
+  --color-gray-900: #1e212c;
+  --color-gray-800: #424551;
+  --color-gray-700: #787a80;
+  --color-gray-600: #9a9ca5;
+  --color-gray-500: #b3b7bc;
+  --color-gray-400: #d7dadd;
+  --color-gray-300: #e5e8ed;
+  --color-gray-200: #f4f5f6;
+  --color-gray-100: #f9f9f9;
+  --color-main: rgb(254, 220, 208);
+}
