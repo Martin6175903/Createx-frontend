@@ -14,14 +14,11 @@ import Header from './components/header/Header.tsx';
 import Footer from './components/footer/Footer.tsx';
 
 function App() {
-
-
-
   return (
     <>
-      <div className={'wrapper'}>
+      <div className={'wrapper flex flex-col justify-between h-full'}>
         <BrowserRouter>
-          <Header isMainBgColor={true}/>
+          <Header/>
           <Routes>
             <Route path='*' element={ <NotFound /> } />
             <Route path='/' element={ <Homepage /> }/>

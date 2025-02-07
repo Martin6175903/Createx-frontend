@@ -1,17 +1,33 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '@public/Logo.svg?react';
+import Navbar from '@components/navbar/Navbar.tsx';
+import UILink from '@/UI/link/UILink.tsx';
+import Profile from '@public/icons/profile-icon.svg?react';
 
 const Header = () => {
-  const href = window.location.pathname;
+  const {pathname} = useLocation();
   return (
-    <header className={`pt-5 ${ (href === '/' || href === '/course' || href === '/event')  ? 'bg-main' : 'bg-white'}`}>
+    <header className={`py-5 ${ (pathname === '/' || pathname === '/course' || pathname === '/event')  ? 'bg-main' : 'bg-white'}`}>
       <div className="container">
-        <div>
-          <Link to='/' className="logo">
-            <Logo fill='pink'/>
-          </Link>
+        <div className={'flex justify-between text-base'}>
+          <div className={'flex items-center'}>
+            <Link to='/' className="logo">
+              <Logo/>
+            </Link>
+            <Navbar/>
+          </div>
+          <div className={'flex gap-9 items-center'}>
+            <div>
+              <UILink isBg={true} paddingHorizontal={10} link={'mailto:martin6175903@yandex.ru'} title={'Get consultation'}/>
+            </div>
+            <div className={'flex gap-2 items-center'}>
+              <Profile/>
+              <div className={'flex gap-1.5 font-bold leading-[1.6]'}>
+                <button>Log in</button><span>/</span><button>Register</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div></div>
       </div>
     </header>
   );

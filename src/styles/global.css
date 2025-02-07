@@ -11,6 +11,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@layer components {
+  html, body {
+    @apply h-full;
+  }
+}
+
 .wrapper {
   max-width: 1920px;
   margin: 0 auto;
