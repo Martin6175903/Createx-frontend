@@ -2,7 +2,7 @@
 
 @theme {
   /* Effects */
-
+  --color-hover-bg: var(--hover-bg);
 
   /* Colors */
   --color-white: #fff;

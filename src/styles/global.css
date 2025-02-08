@@ -9,11 +9,24 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Variables */
+  --hover-bg: #ee2222;
 }
 
 @layer components {
   html, body {
     @apply h-full;
+  }
+}
+
+@layer base {
+  button {
+    cursor: pointer;
+    transition: all .3s;
+  }
+  a {
+    transition: all .3s;
   }
 }
 
