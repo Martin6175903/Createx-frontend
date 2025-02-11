@@ -17,7 +17,7 @@ const Header = () => {
           </div>
           <div className={'flex gap-9 items-center'}>
             <div>
-              <UILink isBg={false} paddingHorizontal={10} link={'mailto:martin6175903@yandex.ru'} title={'Get consultation'}/>
+              <UILink isBg={true} whoElem={'large'} link={'mailto:martin6175903@yandex.ru'} title={'Get consultation'}/>
             </div>
             <div className={'flex gap-2 items-center'}>
               <Profile/>

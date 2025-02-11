@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.link {
+  @apply inline-block text-center rounded py-4 font-bold tracking-wide border border-solid duration-200;
+}

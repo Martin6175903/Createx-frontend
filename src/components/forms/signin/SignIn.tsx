@@ -1,22 +1,21 @@
-import { useState } from 'react';
-import EyeOpenIcon from '@public/icons/eye-open.svg?react';
-import EyeCloseIcon from '@public/icons/eye-close.svg?react';
+import UILabel from '@/UI/form/label/UILabel.tsx';
+import UIInput from '@/UI/form/input/UIInput.tsx';
+import UICheckbox from '@/UI/form/checkbox/UICheckbox.tsx';
 
 const SignIn = () => {
-  const [isVisiblePassword, setIsVisiblePassword] = useState(false);
 
   return (
-    <form>
+    <form action="#" className={'flex flex-col gap-5'}>
       <div>
-        <label htmlFor="modal-email">Email</label>
-        <input type="email" id="modal-email" placeholder="Your working email"/>
+        <UILabel title={'Email'}/>
+        <UIInput placeholderText={'Your working email'}/>
       </div>
       <div>
-        <label htmlFor="modal-password">Password</label>
-        <input type={isVisiblePassword ? 'text' : 'password'} id="modal-password" placeholder="Your working password"/>
-        <button onClick={() => setIsVisiblePassword(!isVisiblePassword)}>
-          {isVisiblePassword ? <EyeOpenIcon/> : <EyeCloseIcon/>}
-        </button>
+        <UILabel title={'Password'}/>
+        <UIInput placeholderText={'Your working password'} isPassword={true}/>
+      </div>
+      <div>
+        <UICheckbox/>
       </div>
     </form>
   );

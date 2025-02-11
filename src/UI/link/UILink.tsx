@@ -1,18 +1,17 @@
 import { Link } from 'react-router-dom';
+import styles from './UILink.module.css';
 
 interface UILinkProps {
   isBg: boolean
-  paddingHorizontal: number
+  whoElem: string
   link: string
   title: string
 }
 
-const UILink = ({ isBg, paddingHorizontal, link, title}: UILinkProps) => {
-
-  const paddingHorizontalElem = 'px-' + paddingHorizontal;
+const UILink = ({ isBg, whoElem, link, title}: UILinkProps) => {
 
   return (
-    <Link to={link} className={`inline-block text-center rounded py-4 ${paddingHorizontalElem} font-bold tracking-wide border border-solid ${isBg ? 'bg-primary text-white hover:hover-bg' : 'bg-transparent border-primary text-primary hover:bg-primary hover:text-white'} duration-200`}>
+    <Link to={link} className={`${styles.link} ${whoElem === 'large' ? 'text-base px-10' : (whoElem === 'regular' ? 'text-sm px-8' : 'text-xs px-6')}  ${isBg ? 'bg-primary text-white border-primary hover:bg-hover-bg' : 'bg-transparent border-primary text-primary hover:bg-primary hover:text-white'}`}>
       {title}
     </Link>
   );
