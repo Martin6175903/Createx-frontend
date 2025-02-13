@@ -21,8 +21,8 @@ export const ModalContext = createContext<IModalProps | null>(null);
 function App() {
 
   const [modalInfo, setModalInfo] = useState({
-    isOpen: false,
-    whoOpenModal: ''
+    isOpen: true,
+    whoOpenModal: 'Sign In'
   });
 
   useEffect(() => {
@@ -34,10 +34,10 @@ function App() {
   return (
     <>
       <div className={`wrapper flex flex-col justify-between h-full relative`}>
-        <div className={`${modalInfo.isOpen ? 'modal' : 'hidden'} flex items-center justify-center`}>
-          <ModalForm modalInfo={modalInfo} setModalInfo={setModalInfo}/>
-        </div>
         <BrowserRouter>
+          <div className={`${modalInfo.isOpen ? 'modal' : 'hidden'} flex items-center justify-center`}>
+            <ModalForm modalInfo={modalInfo} setModalInfo={setModalInfo}/>
+          </div>
           <ModalContext.Provider value={{ modalInfo, setModalInfo }}>
             <Header/>
             <Routes>

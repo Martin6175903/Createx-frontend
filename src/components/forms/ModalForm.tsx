@@ -20,6 +20,10 @@ const ModalForm = ({ modalInfo, setModalInfo }: ModalFormProps) => {
     setModalInfo({ ...modalInfo, isOpen: false });
   };
 
+  const handleClickSwap = (e) => {
+    console.log(e.target.value);
+  }
+
   return (
     <div className="bg-white max-w-[486px] w-full rounded">
       <div className={'p-12 relative'}>
@@ -39,6 +43,20 @@ const ModalForm = ({ modalInfo, setModalInfo }: ModalFormProps) => {
           </p>
         </div>
         {modalInfo.whoOpenModal === 'Sign In' ? <SignIn/> : <SignUp/>}
+        <div className={'mt-6 text-sm'}>
+          <p>
+            {modalInfo.whoOpenModal === 'Sign In'
+              ? (<>
+                  <span>Don't have an account? </span>
+                  <button onClick={handleClickSwap}>Sign up</button>
+                </>)
+              : (<>
+                  <span>Already have an account? </span>
+                  <button onClick={handleClickSwap}>Sign in</button>
+                </>)
+            }
+          </p>
+        </div>
       </div>
       <div className="h-[1px] bg-gray-300"></div>
       <div className="px-12 py-6 text-center">

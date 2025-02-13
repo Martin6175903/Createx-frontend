@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.button {
+  @apply inline-block text-center rounded py-[14px] font-bold tracking-wide border border-solid duration-200 w-full;
+}

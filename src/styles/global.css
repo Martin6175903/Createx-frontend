@@ -28,6 +28,9 @@
   a {
     transition: all .3s;
   }
+  input:focus-visible {
+    outline: none;
+  }
 }
 
 .wrapper {
