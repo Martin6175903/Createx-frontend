@@ -2,10 +2,7 @@ import SignIn from '@components/forms/signin/SignIn.tsx';
 import SignUp from '@components/forms/signup/SignUp.tsx';
 import { IModal } from '@/types/modal.types.ts';
 import { Dispatch, SetStateAction, useState } from 'react';
-import { Link } from 'react-router-dom';
 import SignSocial from '@components/forms/SignSocial.tsx';
-import UILabel from '@/UI/form/label/UILabel.tsx';
-import UIInput from '@/UI/form/input/UIInput.tsx';
 
 interface ModalFormProps {
   modalInfo: IModal;
@@ -20,8 +17,9 @@ const ModalForm = ({ modalInfo, setModalInfo }: ModalFormProps) => {
     setModalInfo({ ...modalInfo, isOpen: false });
   };
 
-  const handleClickSwap = (e) => {
-    console.log(e.target.value);
+  const handleClickSwap = () => {
+    setModalInfo({...modalInfo, whoOpenModal: isSignIn ? 'Sign Up' : 'Sign In'});
+    setIsSignIn(!isSignIn);
   }
 
   return (
@@ -48,11 +46,11 @@ const ModalForm = ({ modalInfo, setModalInfo }: ModalFormProps) => {
             {modalInfo.whoOpenModal === 'Sign In'
               ? (<>
                   <span>Don't have an account? </span>
-                  <button onClick={handleClickSwap}>Sign up</button>
+                  <button className={'text-primary hover:underline hover:scale-105'} onClick={handleClickSwap}>Sign up</button>
                 </>)
               : (<>
                   <span>Already have an account? </span>
-                  <button onClick={handleClickSwap}>Sign in</button>
+                  <button className={'text-primary hover:underline hover:scale-105'} onClick={handleClickSwap}>Sign in</button>
                 </>)
             }
           </p>
