@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
 import Homepage from './pages/Homepage.tsx';
 import AboutUs from './pages/AboutUs.tsx';
 import Blog from './pages/Blog.tsx';
@@ -14,7 +14,7 @@ import Header from './components/header/Header.tsx';
 import Footer from './components/footer/Footer.tsx';
 import { createContext, useEffect, useState } from 'react';
 import { IModalProps } from '@/types/modal.types.ts';
-import ModalForm from '@components/forms/ModalForm.tsx';
+import ModalWrapper from '@components/modal/ModalWrapper.tsx';
 
 export const ModalContext = createContext<IModalProps | null>(null);
 
@@ -30,9 +30,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className={`wrapper flex flex-col justify-between h-full relative`}>
-        <div className={`${isOpenModal ? 'modal' : 'hidden'} flex items-center justify-center`}>
-          <ModalForm isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}/>
-        </div>
+        <ModalWrapper isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}/>
         <ModalContext.Provider value={{ isOpenModal, setIsOpenModal }}>
           <Header />
           <Routes>

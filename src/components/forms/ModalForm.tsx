@@ -9,7 +9,7 @@ interface ModalFormProps {
   setIsOpenModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const ModalForm = ({ isOpenModal, setIsOpenModal }: ModalFormProps) => {
+const ModalForm = ({ setIsOpenModal }: ModalFormProps) => {
   const {pathname} = useLocation();
   const navigate = useNavigate();
 

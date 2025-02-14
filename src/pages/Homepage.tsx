@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { IModalProps } from '@/types/modal.types.ts';
 
-const Homepage = ({isOpenModal, setIsOpenModal}: IModalProps) => {
+const Homepage = ({ setIsOpenModal }: IModalProps) => {
 
   const {pathname} = useLocation();
 
