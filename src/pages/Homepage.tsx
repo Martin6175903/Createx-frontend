@@ -17,7 +17,7 @@ const Homepage = ({ setIsOpenModal }: IModalProps) => {
 
   return (
     <div>
-      <h1 className={'text-4xl text-danger'}>Hello world</h1>
+      <h1 className={'text-4xl text-danger'}>Homepage</h1>
     </div>
   );
 };
