@@ -6,6 +6,6 @@ export interface IModal {
 }
 
 export interface IModalProps {
-  modalInfo: IModal
-  setModalInfo: Dispatch<SetStateAction<IModal>>
+  isOpenModal: boolean
+  setIsOpenModal: Dispatch<SetStateAction<boolean>>
 }

@@ -4,11 +4,19 @@ import UILink from '@/UI/link/UILink.tsx';
 import Profile from '@public/icons/profile-icon.svg?react';
 import Logo from '@components/logo/Logo.tsx';
 import Modal from '@components/modal/Modal.tsx';
+import { useEffect, useState } from 'react';
+import useIsCorrectPath from '@/hooks/useCorrectPath.ts';
 
 const Header = () => {
   const {pathname} = useLocation();
+  const [isCorrectPath, setIsCorrectPath] = useState(false);
+
+  useEffect(() => {
+    setIsCorrectPath(useIsCorrectPath(pathname));
+  }, [pathname]);
+
   return (
-    <header className={`py-5 ${ (pathname === '/' || pathname === '/course' || pathname === '/event')  ? 'bg-main' : 'bg-white'}`}>
+    <header className={`py-5 ${isCorrectPath  ? 'bg-main' : 'bg-white'}`}>
       <div className="container">
         <div className={'flex justify-between text-base'}>
           <div className={'flex items-center'}>

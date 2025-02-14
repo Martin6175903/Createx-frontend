@@ -20,45 +20,42 @@ export const ModalContext = createContext<IModalProps | null>(null);
 
 function App() {
 
-  const [modalInfo, setModalInfo] = useState({
-    isOpen: true,
-    whoOpenModal: 'Sign In'
-  });
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   useEffect(() => {
-    const {isOpen} = modalInfo;
-
-    if (isOpen) document.documentElement.style.overflowY = 'visible';
-  }, [modalInfo.isOpen]);
+    if (isOpenModal) document.documentElement.style.overflowY = 'visible';
+    else document.documentElement.style.overflowY = 'hidden';
+  }, [isOpenModal]);
 
   return (
-    <>
+    <BrowserRouter>
       <div className={`wrapper flex flex-col justify-between h-full relative`}>
-        <BrowserRouter>
-          <div className={`${modalInfo.isOpen ? 'modal' : 'hidden'} flex items-center justify-center`}>
-            <ModalForm modalInfo={modalInfo} setModalInfo={setModalInfo}/>
-          </div>
-          <ModalContext.Provider value={{ modalInfo, setModalInfo }}>
-            <Header/>
-            <Routes>
-              <Route path='*' element={ <NotFound /> } />
-              <Route path='/' element={ <Homepage /> }/>
-              <Route path='/about' element={ <AboutUs /> }/>
-              <Route path='/blog' element={ <Blog /> }/>
-              <Route path='/contacts' element={ <Contacts /> }/>
-              <Route path='/course' element={ <Course /> }/>
-              <Route path='/courses' element={ <Courses /> }/>
-              <Route path='/event' element={ <Event /> }/>
-              <Route path='/events-grid' element={ <EventsGridView /> }/>
-              <Route path='/events-list' element={ <EventsListView /> }/>
-              <Route path='/single-post' element={ <SinglePost /> }/>
-            </Routes>
-            <Footer/>
-          </ModalContext.Provider>
-        </BrowserRouter>
+        <div className={`${isOpenModal ? 'modal' : 'hidden'} flex items-center justify-center`}>
+          <ModalForm isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}/>
+        </div>
+        <ModalContext.Provider value={{ isOpenModal, setIsOpenModal }}>
+          <Header />
+          <Routes>
+            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Homepage isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />} >
+              <Route path="/register" element={<Homepage isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />} />
+              <Route path="/login" element={<Homepage isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />} />
+            </Route>
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/course" element={<Course />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/event" element={<Event />} />
+            <Route path="/events-grid" element={<EventsGridView />} />
+            <Route path="/events-list" element={<EventsListView />} />
+            <Route path="/single-post" element={<SinglePost />} />
+          </Routes>
+          <Footer />
+        </ModalContext.Provider>
       </div>
-    </>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
