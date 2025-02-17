@@ -3,25 +3,31 @@ import UIInput from '@/UI/form/input/UIInput.tsx';
 import UICheckbox from '@/UI/form/checkbox/UICheckbox.tsx';
 import { Link } from 'react-router-dom';
 import UIButton from '@/UI/form/button/UIButton.tsx';
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { ISignInFormInput } from '@/types/form/form.types.ts';
 
 const SignIn = () => {
 
-  const { handleSubmit, register } = useForm();
+  const { register, handleSubmit, formState: {errors} } = useForm<ISignInFormInput>({
+    mode: 'onBlur'
+  });
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const [isValidForm, setIsValidForm] = useState(false);
+
+  const onHandleSubmit: SubmitHandler<ISignInFormInput> = (data) => {
     console.log(data);
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={'flex flex-col gap-5'}>
+    <form onSubmit={handleSubmit(onHandleSubmit)} className={'flex flex-col gap-5'}>
       <div>
         <UILabel title={'Email'}/>
-        <UIInput nameInput={'email'} register={register} placeholderText={'Your working email'} typeInput={'email'} isRequired={true}/>
+        <UIInput errors={errors} register={register} nameInput={'email'} placeholderText={'Your working email'} typeInput={'email'} isRequired={true}/>
       </div>
       <div>
         <UILabel title={'Password'}/>
-        <UIInput nameInput={'password'} register={register} placeholderText={'Your working password'} typeInput={'password'} isRequired={true}/>
+        <UIInput errors={errors} register={register} nameInput={'password'} placeholderText={'Your working password'} typeInput={'password'} isRequired={true}/>
       </div>
       <div className={'flex justify-between items-center text-sm'}>
         <UICheckbox register={register} title={'Keep me signed in'}/>
@@ -31,6 +37,7 @@ const SignIn = () => {
       </div>
       <div>
         <UIButton title={'Sign in'} isSubmit={true}/>
+        {!isValidForm ? '' : <p className={'text-green-700 text-xl font-bold text-center mt-2'}>Ваша форма валидна!</p>}
       </div>
     </form>
   );

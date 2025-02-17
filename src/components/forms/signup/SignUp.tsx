@@ -2,13 +2,16 @@ import UILabel from '@/UI/form/label/UILabel.tsx';
 import UIInput from '@/UI/form/input/UIInput.tsx';
 import UICheckbox from '@/UI/form/checkbox/UICheckbox.tsx';
 import UIButton from '@/UI/form/button/UIButton.tsx';
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { ISignUpFormInput } from '@/types/form/form.types.ts';
 
 const SignUp = () => {
 
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, formState: { errors } } = useForm<ISignUpFormInput>({
+    mode: 'onBlur'
+  });
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<ISignUpFormInput> = (data) => {
     console.log(data);
   }
 
@@ -16,19 +19,19 @@ const SignUp = () => {
     <form onSubmit={handleSubmit(onSubmit)} className={'flex flex-col gap-5'}>
       <div>
         <UILabel title={'Full Name'}/>
-        <UIInput register={register} nameInput={'fullname'} placeholderText={'Your full name'} typeInput={'text'} isRequired={true}/>
+        <UIInput register={register} errors={errors} nameInput={'fullname'} placeholderText={'Your full name'} typeInput={'text'} isRequired={true}/>
       </div>
       <div>
         <UILabel title={'Email'}/>
-        <UIInput register={register} nameInput={'email'} placeholderText={'Your working email'} typeInput={'email'} isRequired={true}/>
+        <UIInput register={register} errors={errors} nameInput={'email'} placeholderText={'Your working email'} typeInput={'email'} isRequired={true}/>
       </div>
       <div>
         <UILabel title={'Password'}/>
-        <UIInput register={register} nameInput={'password'} placeholderText={'Your working password'} typeInput={'password'} isRequired={true}/>
+        <UIInput register={register} errors={errors} nameInput={'password'} placeholderText={'Your working password'} typeInput={'password'} isRequired={true}/>
       </div>
       <div>
         <UILabel title={'Password'}/>
-        <UIInput register={register} nameInput={'confPassword'} placeholderText={'Your confirm password'} typeInput={'password'} isRequired={true}/>
+        <UIInput register={register} errors={errors} nameInput={'confPassword'} placeholderText={'Your confirm password'} typeInput={'password'} isRequired={true}/>
       </div>
       <div className={'flex justify-between items-center text-sm'}>
         <UICheckbox register={register} title={'Remember me'}/>

@@ -1,5 +1,5 @@
 @import "tailwindcss";
 
 .input {
-  @apply w-full border border-solid border-gray-400 text-sm text-gray-800 tracking-wide py-3 rounded bg-white placeholder:text-gray-600;
+  @apply w-full border-2 border-solid text-sm text-gray-800 tracking-wide py-3 rounded duration-150 bg-white placeholder:text-gray-600;
 }

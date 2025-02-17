@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.checkbox-list {
+  @apply absolute flex justify-center items-center duration-300 rounded-[3px] border-solid border border-gray-400 size-6 py-1 px-[3px] left-0 top-[calc(50%-12px)] leading-[1];
+}
