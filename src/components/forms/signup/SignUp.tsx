@@ -13,6 +13,7 @@ const SignUp = () => {
 
   const onSubmit: SubmitHandler<ISignUpFormInput> = (data) => {
     console.log(data);
+
   }
 
   return (

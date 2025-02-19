@@ -4,7 +4,6 @@ import UICheckbox from '@/UI/form/checkbox/UICheckbox.tsx';
 import { Link } from 'react-router-dom';
 import UIButton from '@/UI/form/button/UIButton.tsx';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useEffect, useState } from 'react';
 import { ISignInFormInput } from '@/types/form/form.types.ts';
 
 const SignIn = () => {
@@ -13,10 +12,7 @@ const SignIn = () => {
     mode: 'onBlur'
   });
 
-  const [isValidForm, setIsValidForm] = useState(false);
-
-  const onHandleSubmit: SubmitHandler<ISignInFormInput> = (data) => {
-    console.log(data);
+  const onHandleSubmit: SubmitHandler<ISignInFormInput> = () => {
   }
 
   return (
@@ -37,7 +33,6 @@ const SignIn = () => {
       </div>
       <div>
         <UIButton title={'Sign in'} isSubmit={true}/>
-        {!isValidForm ? '' : <p className={'text-green-700 text-xl font-bold text-center mt-2'}>Ваша форма валидна!</p>}
       </div>
     </form>
   );

@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 import { useLocation } from 'react-router-dom';
-import { ISignInFormInput } from '@/types/form/form.types.ts';
+import { ISignInFormInput, ISignUpFormInput } from '@/types/form/form.types.ts';
 import styles from './UICheckbox.module.css';
 
 interface UICheckboxProps {
   title: string
-  register: UseFormRegister<ISignInFormInput>
+  register: UseFormRegister<ISignInFormInput> | UseFormRegister<ISignUpFormInput>
 }
 
 const UICheckbox = ({title, register}: UICheckboxProps) => {
@@ -23,7 +23,7 @@ const UICheckbox = ({title, register}: UICheckboxProps) => {
           <input
             {...register(pathname === '/login' ? 'mailing' : 'remember',
               {
-                onChange(e) {setIsChecked(e.target.checked)}
+                onChange(e:ChangeEvent<HTMLInputElement>) {setIsChecked(e.target.checked)}
             })}
             checked={isChecked}
             type="checkbox"
