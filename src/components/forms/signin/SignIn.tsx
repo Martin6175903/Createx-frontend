@@ -4,7 +4,7 @@ import UICheckbox from '@/UI/form/checkbox/UICheckbox.tsx';
 import { Link } from 'react-router-dom';
 import UIButton from '@/UI/form/button/UIButton.tsx';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ISignInFormInput } from '@/types/form/form.types.ts';
 
 const SignIn = () => {
