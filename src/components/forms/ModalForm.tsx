@@ -1,7 +1,7 @@
 import SignIn from '@components/forms/signin/SignIn.tsx';
 import SignUp from '@components/forms/signup/SignUp.tsx';
 import { Dispatch, SetStateAction, useState } from 'react';
-import SignSocial from '@components/forms/SignSocial.tsx';
+import SocialItems from '@components/forms/socialItem/SocialItems.tsx';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 interface ModalFormProps {
@@ -57,7 +57,7 @@ const ModalForm = ({ setIsOpenModal }: ModalFormProps) => {
         <p className="mb-4 text-sm text-gray-700">
           {pathname === '/login' ? 'Or sign in with' : 'Or sign up with'}
         </p>
-        <SignSocial />
+        <SocialItems />
       </div>
     </div>
   );

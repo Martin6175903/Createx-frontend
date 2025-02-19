@@ -52,7 +52,7 @@ const UIInput = ({placeholderText, typeInput, isRequired, nameInput, register, e
           {isVisitField ? (isValidField ? <>&#10004;</> : <>&#10006;</>) : ''}
         </span>
       </div>
-      <p className={`absolute right-0 -top-[26px] text-sm ${isValidField ? 'text-green-700' : 'text-danger'}`}>{isVisitField ? (!isValidField ? `Ваш ${nameInput === 'confPassword' ? 'подтверждающий пароль' : nameInput} некорректен!` : 'Это поле заполнено верно!') : ''}</p>
+      <p className={`absolute right-0 -top-[26px] text-sm ${isValidField ? 'text-green-700' : 'text-danger'}`}>{isVisitField ? (!isValidField ? `Ваш ${nameInput === 'confPassword' ? 'confirm password' : nameInput} некорректен!` : 'Это поле заполнено верно!') : ''}</p>
     </div>
   );
 };
