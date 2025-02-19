@@ -4,6 +4,7 @@ import UICheckbox from '@/UI/form/checkbox/UICheckbox.tsx';
 import UIButton from '@/UI/form/button/UIButton.tsx';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ISignUpFormInput } from '@/types/form/form.types.ts';
+import { useState } from 'react';
 
 const SignUp = () => {
 
@@ -11,9 +12,15 @@ const SignUp = () => {
     mode: 'onBlur'
   });
 
+  const [isCompasionPasswords, setIsCompasionPasswords] = useState(true);
+
   const onSubmit: SubmitHandler<ISignUpFormInput> = (data) => {
     console.log(data);
-
+    if (data.password !== data.confPassword) {
+      setIsCompasionPasswords(false)
+      return false;
+    }
+    if (!isCompasionPasswords) setIsCompasionPasswords(true)
   }
 
   return (
@@ -38,7 +45,7 @@ const SignUp = () => {
         <UICheckbox register={register} title={'Remember me'}/>
       </div>
       <div>
-        <UIButton title={'Sign up'} isSubmit={true}/>
+        <UIButton title={'Sign up'} isSubmit={true} isCompasionPasswords={isCompasionPasswords}/>
       </div>
     </form>
   );
