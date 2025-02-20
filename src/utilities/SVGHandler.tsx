@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface ISVGHandlerProps {
   children: JSX.Element
@@ -7,10 +7,19 @@ interface ISVGHandlerProps {
 
 const SvgHandler = ({ children, hoverBG }: ISVGHandlerProps) => {
 
-  const [hoverColor, setHoverColor] = useState(hoverBG ? `hover:[&_path]:fill-${hoverBG}` : '');
+  const [hoverColor, setHoverColor] = useState('');
+
+  useEffect(() => {
+    if (hoverBG === 'primary') {
+      setHoverColor('hover:[&_path]:fill-primary');
+    }
+    if (hoverBG === 'red-300') {
+      setHoverColor('hover:[&_path]:fill-red-300');
+    }
+  }, [hoverColor]);
 
   return (
-    <div className={`${hoverColor && hoverColor} [&_path]:duration-300 cursor-pointer`}>
+    <div className={`${hoverColor} [&_path]:duration-300 cursor-pointer`}>
       {children}
     </div>
   );
