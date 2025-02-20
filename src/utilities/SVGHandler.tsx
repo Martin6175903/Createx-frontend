@@ -7,10 +7,10 @@ interface ISVGHandlerProps {
 
 const SvgHandler = ({ children, hoverBG }: ISVGHandlerProps) => {
 
-  const [hoverColor] = useState(hoverBG ? `hover:[&_path]:fill-${hoverBG}` : '');
+  const [hoverColor, setHoverColor] = useState(hoverBG ? `hover:[&_path]:fill-${hoverBG}` : '');
 
   return (
-    <div className={`${hoverColor} [&_path]:duration-300 cursor-pointer`}>
+    <div className={`${hoverColor && hoverColor} [&_path]:duration-300 cursor-pointer`}>
       {children}
     </div>
   );

@@ -18,6 +18,9 @@
   html, body {
     @apply h-full;
   }
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer base {

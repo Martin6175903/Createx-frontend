@@ -18,7 +18,7 @@ const Homepage = ({ setIsOpenModal }: IModalProps) => {
 
   return (
     <div>
-      {/*<Studying/>*/}
+      <Studying/>
     </div>
   );
 };
