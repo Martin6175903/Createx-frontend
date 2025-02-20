@@ -6,6 +6,7 @@ import Logo from '@components/logo/Logo.tsx';
 import Modal from '@components/modal/Modal.tsx';
 import { useEffect, useState } from 'react';
 import useIsCorrectPath from '@/hooks/useCorrectPath.ts';
+import SVGHandler from '@/utilities/SVGHandler.tsx';
 
 const Header = () => {
   const {pathname} = useLocation();
@@ -28,7 +29,7 @@ const Header = () => {
               <UILink isBg={true} whoElem={'large'} link={'mailto:martin6175903@yandex.ru'} title={'Get consultation'}/>
             </div>
             <div className={'flex gap-2 items-center'}>
-              <Profile/>
+              <SVGHandler hoverBG={'primary'}><Profile/></SVGHandler>
               <Modal/>
             </div>
           </div>

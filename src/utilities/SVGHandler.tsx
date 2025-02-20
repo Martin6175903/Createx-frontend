@@ -1,13 +1,16 @@
+import { useState } from 'react';
+
 interface ISVGHandlerProps {
   children: JSX.Element
-  hoverBG: string
+  hoverBG?: string
 }
 
 const SvgHandler = ({ children, hoverBG }: ISVGHandlerProps) => {
-  const hoverSVG = `hover:[&_path]:fill-${hoverBG}`;
+
+  const [hoverColor] = useState(hoverBG ? `hover:[&_path]:fill-${hoverBG}` : '');
 
   return (
-    <div className={`${hoverSVG} [&_path]:duration-300 cursor-pointer`}>
+    <div className={`${hoverColor} [&_path]:duration-300 cursor-pointer`}>
       {children}
     </div>
   );
