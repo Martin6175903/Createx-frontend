@@ -3,9 +3,9 @@ import LogoSVG from '@public/Logo-dark-mode.svg?react';
 import SocialItems from '@components/footer/footer-top/SocialItems.tsx';
 import ListLinks from '@components/footer/footer-top/list-links/ListLinks.tsx';
 import ListLink from '@components/footer/footer-top/list-links/ListLink.tsx';
-import PhoneIcon from '@public/icons/phone.svg?react';
 import MailIcon from '@public/icons/mail.svg?react';
 import SVGHandler from '@/utilities/SVGHandler.tsx';
+import { Mail, MoveRight, Smartphone } from 'lucide-react';
 
 const FooterTop = () => {
   return (
@@ -38,15 +38,26 @@ const FooterTop = () => {
             <ListLink title={'Development'} link={'contacts'} />
           </ListLinks>
           <ListLinks title={'CONTACT US'}>
-            <li className={'flex gap-2 items-center'}>
-              <SVGHandler hoverBG={'white'}><PhoneIcon/></SVGHandler>
-              <a className={'hover:underline hover:text-white duration-300'} href="tel:+74055550128">(405) 555-0128</a>
+            <li className={'flex gap-2 items-center group/link'}>
+              <Mail className={'text-sublink group-hover/link:text-white duration-300'} size={16}/>
+              <a className={'group-hover/link:underline group-hover/link:text-white duration-300'} href="tel:+74055550128">(405) 555-0128</a>
             </li>
-            <li className={'flex gap-2 items-center'}>
-              <SVGHandler hoverBG={'white'}><MailIcon/></SVGHandler>
-              <a className={'hover:underline hover:text-white duration-300'} href="mailto:hello@createx.com">hello@createx.com</a>
+            <li className={'flex gap-2 items-center group/link'}>
+              <Smartphone className={'text-sublink group-hover/link:text-white duration-300'} size={16}/>
+              <a className={'group-hover/link:underline group-hover/link:text-white duration-300'} href="mailto:hello@createx.com">hello@createx.com</a>
             </li>
           </ListLinks>
+          <div className={'basis-[286px]'}>
+            <ListLinks title={'SIGN UP TO OUR NEWSLETTER'}>
+              <div className={'flex flex-col gap-3'}>
+                <label className={'relative'} htmlFor="footer-input">
+                  <input className={'py-2.5 pl-3 pr-8 border-solid border-2 border-[rgba(255,255,255,0.2)] rounded bg-[rgba(255,255,255,0.12)] w-full placeholder:text-sublink placeholder:text-xs'} type="text" id={'footer-input'} placeholder={'Email address'}/>
+                  <button className={'absolute top-[calc(50%-8px)] right-4 group/icon'}><MoveRight className={'group-hover/icon:text-white duration-300 group-hover/icon:scale-120'} size={16}/></button>
+                </label>
+                <p className={'text-[10px] text-white'}>*Subscribe to our newsletter to receive communications and early updates from Createx SEO Agency.</p>
+              </div>
+            </ListLinks>
+          </div>
         </div>
       </div>
     </div>
