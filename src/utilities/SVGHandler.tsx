@@ -16,6 +16,9 @@ const SvgHandler = ({ children, hoverBG }: ISVGHandlerProps) => {
     if (hoverBG === 'red-300') {
       setHoverColor('hover:[&_path]:fill-red-300');
     }
+    if (hoverBG === 'white') {
+      setHoverColor('hover:[&_path]:fill-white');
+    }
   }, [hoverColor]);
 
   return (

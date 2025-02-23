@@ -17,7 +17,7 @@ const Header = () => {
   }, [pathname]);
 
   return (
-    <header className={`py-5 ${isCorrectPath  ? 'bg-main' : 'bg-white'}`}>
+    <header id={'header'} className={`py-5 ${isCorrectPath  ? 'bg-main' : 'bg-white'}`}>
       <div className="container">
         <div className={'flex justify-between text-base'}>
           <div className={'flex items-center'}>
