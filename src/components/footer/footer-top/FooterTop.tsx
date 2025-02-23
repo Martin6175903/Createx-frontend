@@ -50,11 +50,15 @@ const FooterTop = () => {
           <div className={'basis-[286px]'}>
             <ListLinks title={'SIGN UP TO OUR NEWSLETTER'}>
               <div className={'flex flex-col gap-3'}>
-                <label className={'relative'} htmlFor="footer-input">
-                  <input className={'py-2.5 pl-3 pr-8 border-solid border-2 border-[rgba(255,255,255,0.2)] rounded bg-[rgba(255,255,255,0.12)] w-full placeholder:text-sublink placeholder:text-xs'} type="text" id={'footer-input'} placeholder={'Email address'}/>
-                  <button className={'absolute top-[calc(50%-8px)] right-4 group/icon'}><MoveRight className={'group-hover/icon:text-white duration-300 group-hover/icon:scale-120'} size={16}/></button>
-                </label>
-                <p className={'text-[10px] text-white'}>*Subscribe to our newsletter to receive communications and early updates from Createx SEO Agency.</p>
+                <form>
+                  <label className={'relative'} htmlFor="footer-input">
+                    <input className={'py-2.5 pl-3 pr-8 border-solid border-2 border-[rgba(255,255,255,0.2)] rounded bg-[rgba(255,255,255,0.12)] w-full placeholder:text-sublink placeholder:text-xs focus:border-gray-300 duration-300 text-white text-sm'} type="email" id={'footer-input'} placeholder={'Email address'}/>
+                    <button type={'submit'} className={'absolute top-[calc(50%-8px)] right-4 group/icon'}><MoveRight className={'group-hover/icon:text-white duration-300 group-hover/icon:scale-120'} size={16}/></button>
+                  </label>
+                </form>
+                <p className={'text-[10px] text-white'}>
+                  *Subscribe to our newsletter to receive communications and early updates from Createx SEO Agency.
+                </p>
               </div>
             </ListLinks>
           </div>
