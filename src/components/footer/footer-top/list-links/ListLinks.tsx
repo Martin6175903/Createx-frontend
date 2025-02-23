@@ -1,10 +1,12 @@
-import ListLink from '@components/footer/footer-top/list-links/ListLink.tsx';
+import { ReactNode } from 'react';
 
-const ListLinks = ({children, title}: {title: string}) => {
+const ListLinks = ({title, children}: {title: string, children: ReactNode}) => {
   return (
     <div>
-      <h4 className={'font-bold text-base tracking-wider uppercase'}>{title}</h4>
-      {children}
+      <h4 className={'font-bold text-base tracking-wider uppercase mb-3'}>{title}</h4>
+      <ul className={'flex flex-col gap-2 text-sublink text-base'}>
+        {children}
+      </ul>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const ListLink = ({title, link}: { title: string, link: string }) => {
   return (
-    <li><Link to={link}>{title}</Link></li>
+    <li className={'group/edit'}><Link to={link} className={'group-hover/edit:underline group-hover/edit:text-white  duration-300'}>{title}</Link></li>
   );
 };
 
