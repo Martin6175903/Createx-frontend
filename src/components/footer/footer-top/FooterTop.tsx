@@ -3,12 +3,15 @@ import LogoSVG from '@public/Logo-dark-mode.svg?react';
 import SocialItems from '@components/footer/footer-top/SocialItems.tsx';
 import ListLinks from '@components/footer/footer-top/list-links/ListLinks.tsx';
 import ListLink from '@components/footer/footer-top/list-links/ListLink.tsx';
+import PhoneIcon from '@public/icons/phone.svg?react';
+import MailIcon from '@public/icons/mail.svg?react';
+import SVGHandler from '@/utilities/SVGHandler.tsx';
 
 const FooterTop = () => {
   return (
     <div className={'pt-20 pb-15 bg-gray-900'}>
       <div className="container">
-        <div className={'flex justify-evenly'}>
+        <div className={'flex justify-between'}>
           <div className={'max-w-[280px]'}>
             <Link to={'/'} className={'group/edit'}>
               <LogoSVG className={'group-hover/edit:scale-110 duration-150'} />
@@ -33,6 +36,16 @@ const FooterTop = () => {
             <ListLink title={'HR & Recruting'} link={'event'} />
             <ListLink title={'Design'} link={'blog'} />
             <ListLink title={'Development'} link={'contacts'} />
+          </ListLinks>
+          <ListLinks title={'CONTACT US'}>
+            <li className={'flex gap-2 items-center'}>
+              <SVGHandler hoverBG={'white'}><PhoneIcon/></SVGHandler>
+              <a className={'hover:underline hover:text-white duration-300'} href="tel:+74055550128">(405) 555-0128</a>
+            </li>
+            <li className={'flex gap-2 items-center'}>
+              <SVGHandler hoverBG={'white'}><MailIcon/></SVGHandler>
+              <a className={'hover:underline hover:text-white duration-300'} href="mailto:hello@createx.com">hello@createx.com</a>
+            </li>
           </ListLinks>
         </div>
       </div>
