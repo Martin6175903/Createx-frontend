@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { IModalProps } from '@/types/modal.types.ts';
 import Studying from '@/pages/homepage/chunk/studying/Studying.tsx';
 import Advantages from '@/pages/homepage/chunk/advantages/Advantages.tsx';
+import Courses from '@/pages/homepage/chunk/courses/Courses.tsx';
 
 const Homepage = ({ setIsOpenModal }: IModalProps) => {
 
@@ -21,6 +22,7 @@ const Homepage = ({ setIsOpenModal }: IModalProps) => {
     <div>
       <Studying/>
       <Advantages/>
+      <Courses/>
     </div>
   );
 };

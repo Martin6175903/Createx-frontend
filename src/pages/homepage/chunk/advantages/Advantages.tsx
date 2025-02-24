@@ -4,7 +4,7 @@ import UILink from '@/UI/link/UILink.tsx';
 
 const Advantages = () => {
   return (
-    <div className={'py-[180px]'}>
+    <div className={'my-[180px]'}>
       <div className="container">
         <div className={'flex justify-between'}>
           <div>
