@@ -3,8 +3,6 @@ import LogoSVG from '@public/Logo-dark-mode.svg?react';
 import SocialItems from '@components/footer/footer-top/SocialItems.tsx';
 import ListLinks from '@components/footer/footer-top/list-links/ListLinks.tsx';
 import ListLink from '@components/footer/footer-top/list-links/ListLink.tsx';
-import MailIcon from '@public/icons/mail.svg?react';
-import SVGHandler from '@/utilities/SVGHandler.tsx';
 import { Mail, MoveRight, Smartphone } from 'lucide-react';
 
 const FooterTop = () => {
