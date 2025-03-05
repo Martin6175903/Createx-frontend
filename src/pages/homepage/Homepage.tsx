@@ -4,6 +4,7 @@ import { IModalProps } from '@/types/modal.types.ts';
 import Studying from '@/pages/homepage/chunk/studying/Studying.tsx';
 import Advantages from '@/pages/homepage/chunk/advantages/Advantages.tsx';
 import Courses from '@/pages/homepage/chunk/courses/Courses.tsx';
+import Benefits from '@/pages/homepage/chunk/benefits/Benefits.tsx';
 
 const Homepage = ({ setIsOpenModal }: IModalProps) => {
 
@@ -23,6 +24,7 @@ const Homepage = ({ setIsOpenModal }: IModalProps) => {
       <Studying/>
       <Advantages/>
       <Courses/>
+      <Benefits/>
     </div>
   );
 };

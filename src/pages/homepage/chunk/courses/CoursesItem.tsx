@@ -1,4 +1,4 @@
-import { CourseTypes } from '@/types/course/course.types.ts';
+import { CourseTypes } from '@/types/homepage/course/course.types.ts';
 import useCheckSphere from '@/hooks/useCheckSphere.ts';
 
 interface CoursesItemProps {
@@ -12,7 +12,7 @@ const CoursesItem = ({ course }: CoursesItemProps ) => {
   console.log(colorSphere);
 
   return (
-    <div className={'flex items-center gap-8 rounded border border-solid border-gray-300 shadow-[0_4px_4px_-4px_rgba(30,33,44,0.03),0_12px_10px_-6px_rgba(154,156,165,0.04),0_30px_24px_-10px_rgba(154,156,165,0.05),0_80px_80px_-20px_rgba(154,156,165,0.08)]'}>
+    <div className={'flex items-center gap-8 rounded border border-solid border-gray-300 shadow-[0_4px_4px_-4px_rgba(30,33,44,0.03),0_12px_10px_-6px_rgba(154,156,165,0.04),0_30px_24px_-10px_rgba(154,156,165,0.05),0_80px_80px_-20px_rgba(154,156,165,0.08)] hover:scale-105 duration-200 cursor-pointer'}>
       <div>
         <img className={'h-[214px]'} src={src} alt={title}/>
       </div>

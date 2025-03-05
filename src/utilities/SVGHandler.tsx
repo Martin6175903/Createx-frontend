@@ -24,6 +24,7 @@ const SvgHandler = ({ children, hoverBG }: ISVGHandlerProps) => {
   return (
     <div className={`${hoverColor} [&_path]:duration-300 cursor-pointer`}>
       {children}
+
     </div>
   );
 };
