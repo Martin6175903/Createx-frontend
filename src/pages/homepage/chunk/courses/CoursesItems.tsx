@@ -7,14 +7,57 @@ import CoursesItemImage5 from '@public/homepage/courses/courses-person-5.png';
 import CoursesItemImage6 from '@public/homepage/courses/courses-person-6.png';
 
 const CoursesItems = () => {
+
+  const dataCourses = [
+    {
+      src: CoursesItemImage1,
+      sphere: 'Marketing',
+      title: 'The Ultimate Google Ads Training Course',
+      price: 100,
+      author: 'Jerome Bell'
+    },
+    {
+      src: CoursesItemImage2,
+      sphere: 'Management',
+      title: 'Prduct Management Fundamentals',
+      price: 480,
+      author: 'Marvin McKinney'
+    },
+    {
+      src: CoursesItemImage3,
+      sphere: 'HR & Recruting',
+      title: 'HR  Management and Analytics',
+      price: 200,
+      author: 'Leslie Alexander Li'
+    },
+    {
+      src: CoursesItemImage4,
+      sphere: 'Marketing',
+      title: 'Brand Management & PR Communications',
+      price: 530,
+      author: 'Kristin Watson'
+    },
+    {
+      src: CoursesItemImage5,
+      sphere: 'Management',
+      title: 'Business Development Management',
+      price: 400,
+      author: 'Dianne Russell'
+    },
+    {
+      src: CoursesItemImage6,
+      sphere: 'Design',
+      title: 'Graphic Design Basic',
+      price: 500,
+      author: 'Guy Hawkins'
+    }
+  ]
+
   return (
     <div className={'grid grid-cols-2 gap-[30px]'}>
-      <CoursesItem><img src={CoursesItemImage1} alt="Courses Item Image Person"/></CoursesItem>
-      <CoursesItem><img src={CoursesItemImage2} alt="Courses Item Image Person"/></CoursesItem>
-      <CoursesItem><img src={CoursesItemImage3} alt="Courses Item Image Person"/></CoursesItem>
-      <CoursesItem><img src={CoursesItemImage4} alt="Courses Item Image Person"/></CoursesItem>
-      <CoursesItem><img src={CoursesItemImage5} alt="Courses Item Image Person"/></CoursesItem>
-      <CoursesItem><img src={CoursesItemImage6} alt="Courses Item Image Person"/></CoursesItem>
+      {dataCourses.map((course, index) => (
+        <CoursesItem key={index} course={course}/>
+      ))}
     </div>
   );
 };
