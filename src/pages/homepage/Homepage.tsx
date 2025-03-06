@@ -7,6 +7,7 @@ import Courses from '@/pages/homepage/chunk/courses/Courses.tsx';
 import Benefits from '@/pages/homepage/chunk/benefits/Benefits.tsx';
 import Events from '@/pages/homepage/chunk/events/Events.tsx';
 import Certificate from '@/pages/homepage/chunk/certificate/Certificate.tsx';
+import Team from '@/pages/homepage/chunk/team/Team.tsx';
 
 const Homepage = ({ setIsOpenModal }: IModalProps) => {
 
@@ -29,6 +30,7 @@ const Homepage = ({ setIsOpenModal }: IModalProps) => {
       <Benefits/>
       <Events/>
       <Certificate/>
+      <Team/>
     </div>
   );
 };
