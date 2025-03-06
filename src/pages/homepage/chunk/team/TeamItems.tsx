@@ -30,7 +30,7 @@ const TeamItems = () => {
   ]
 
   return (
-    <div>
+    <div className={'flex justify-between'}>
       {itemsInfo.map((person, index) => (
         <TeamItem person={person} key={index}/>
       ))}
